@@ -140,7 +140,7 @@ PLOTLY_TEMPLATE = dict(
         title_font=dict(size=16, color="#c9c6ff"),
         xaxis=dict(gridcolor=COLORS["grid"], zeroline=False),
         yaxis=dict(gridcolor=COLORS["grid"], zeroline=False),
-        margin=dict(l=40, r=20, t=50, b=40),
+
         hoverlabel=dict(bgcolor="#2d2b55", font_size=13, bordercolor="#6c63ff"),
     )
 )
@@ -482,11 +482,8 @@ with tab4:
                             showscale=False),
                 hovertemplate="%{y}: %{x} ocurrencias<extra></extra>"
             ))
-            fig3.update_layout(
-                **PLOTLY_TEMPLATE["layout"],
-                height=480,
-                margin=dict(l=10, r=10, t=20, b=20),
-            )
+            fig3.update_layout(**PLOTLY_TEMPLATE["layout"], height=480)
+            fig3.update_layout(margin=dict(l=10, r=10, t=20, b=20))
             fig3.update_yaxes(categoryorder="total ascending", gridcolor=COLORS["grid"])
             st.plotly_chart(fig3, use_container_width=True)
     else:
