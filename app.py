@@ -356,9 +356,8 @@ with tab2:
                            hovertemplate="<b>%{y}</b><br>%{x} menciones<extra></extra>")
         fig3.update_layout(**PLOTLY_TEMPLATE["layout"],
                            title="🔬 Tecnologías más mencionadas en abstracts",
-                           height=420, coloraxis_showscale=False,
-                           yaxis=dict(categoryorder="total ascending",
-                                      gridcolor=COLORS["grid"]))
+                           height=420, coloraxis_showscale=False)
+        fig3.update_yaxes(categoryorder="total ascending", gridcolor=COLORS["grid"])
         st.plotly_chart(fig3, use_container_width=True)
 
 
@@ -407,8 +406,8 @@ with tab3:
             **PLOTLY_TEMPLATE["layout"],
             title=f"🏅 Top {n_authors} autores más citados",
             height=max(400, n_authors * 26),
-            yaxis=dict(categoryorder="total ascending", gridcolor=COLORS["grid"]),
         )
+        fig.update_yaxes(categoryorder="total ascending", gridcolor=COLORS["grid"])
         st.plotly_chart(fig, use_container_width=True)
 
         # Scatter productividad vs impacto
@@ -487,9 +486,8 @@ with tab4:
                 **PLOTLY_TEMPLATE["layout"],
                 height=480,
                 margin=dict(l=10, r=10, t=20, b=20),
-                yaxis=dict(categoryorder="total ascending",
-                           gridcolor=COLORS["grid"]),
             )
+            fig3.update_yaxes(categoryorder="total ascending", gridcolor=COLORS["grid"])
             st.plotly_chart(fig3, use_container_width=True)
     else:
         st.info("No hay columna 'Abstract' en el dataset.")
