@@ -331,7 +331,7 @@ with tab2:
             fig2.update_yaxes(title_text="Citas totales", secondary_y=False,
                               gridcolor=COLORS["grid"])
             fig2.update_yaxes(title_text="Promedio / doc", secondary_y=True,
-                              gridcolor="transparent")
+                              showgrid=False)
             st.plotly_chart(fig2, use_container_width=True)
 
     if "Abstract" in df.columns:
